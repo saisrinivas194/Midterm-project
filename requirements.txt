@@ -1,0 +1,2 @@
+pytest
+pytest-cov  # if you also want coverage reporting
