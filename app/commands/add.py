@@ -1,6 +1,6 @@
 # app/commands/add.py
 
-from app.commands.command import Command  # Ensure this import is present
+from app.commands.command import Command 
 
 class Add(Command):
     def execute(self, x, y):
