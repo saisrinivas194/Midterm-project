@@ -33,14 +33,14 @@ jobs:
     - name: Lint with flake8
       run: |
         flake8 app/ tests/
-
+      
     - name: Lint with pylint
       run: |
         pylint app/ tests/
 
     - name: Run tests with pytest
       run: |
-        pytest --cov=app --cov-report=xml
+        pytest --cov=app --cov-report=xml --disable-warnings
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
