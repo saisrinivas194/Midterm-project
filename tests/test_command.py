@@ -2,12 +2,14 @@ import unittest
 
 from app.commands.command import Command
 
+
 class TestCommand(Command):
     def execute(self, *args):
         return "Executed"
 
+
 class TestCommandUnit(unittest.TestCase):
-    
+
     def test_command_execute(self):
         command = TestCommand()
         result = command.execute()
@@ -21,6 +23,7 @@ class TestCommandUnit(unittest.TestCase):
 
     def test_command_with_args(self):
         """Test that the execute method handles arguments correctly."""
+
         class TestCommandWithArgs(TestCommand):
             def execute(self, *args):
                 return f"Executed with args: {', '.join(args)}"
@@ -28,6 +31,7 @@ class TestCommandUnit(unittest.TestCase):
         command = TestCommandWithArgs()
         result = command.execute("arg1", "arg2")
         self.assertEqual(result, "Executed with args: arg1, arg2")
+
 
 if __name__ == "__main__":
     unittest.main()

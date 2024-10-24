@@ -2,17 +2,19 @@ import sys
 import os
 import pytest
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
-from app.commands.divide import divide  
+from app.commands.divide import divide
 from app.commands.divide import Divide
+
 
 def test_divide_by_zero():
     divide_command = Divide()
     with pytest.raises(ValueError) as excinfo:
-        divide_command.execute(10, 0)  
-    
+        divide_command.execute(10, 0)
+
     assert str(excinfo.value) == "Cannot divide by zero."
+
 
 def test_divide():
 

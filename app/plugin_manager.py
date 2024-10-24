@@ -1,8 +1,9 @@
 import importlib.util
 import os
 import sys
-from app.plugins.plugin import Plugin  
+from app.plugins.plugin import Plugin
 import logging
+
 
 class PluginManager:
     def __init__(self, plugins_dir):
@@ -12,9 +13,9 @@ class PluginManager:
     def load_plugins(self):
         for filename in os.listdir(self.plugins_dir):
             if filename.endswith("_plugin.py"):
-                module_name = filename[:-3]  
+                module_name = filename[:-3]
                 module_path = os.path.join(self.plugins_dir, filename)
-                
+
                 spec = importlib.util.spec_from_file_location(module_name, module_path)
                 module = importlib.util.module_from_spec(spec)
                 sys.modules[module_name] = module
@@ -22,7 +23,11 @@ class PluginManager:
 
                 for name in dir(module):
                     obj = getattr(module, name)
-                    if isinstance(obj, type) and issubclass(obj, Plugin) and obj is not Plugin:
+                    if (
+                        isinstance(obj, type)
+                        and issubclass(obj, Plugin)
+                        and obj is not Plugin
+                    ):
                         self.plugins.append(obj())
 
     def run_plugins(self):

@@ -4,7 +4,7 @@ import logging.config
 import configparser
 
 config = configparser.ConfigParser()
-config.read('logging.conf')
+config.read("logging.conf")
 logging.config.fileConfig(config)
 
 logger = logging.getLogger(__name__)
@@ -14,7 +14,13 @@ from app.commands.subtract import Subtract
 from app.commands.multiply import Multiply
 from app.commands.divide import Divide
 from app.plugin_manager import PluginManager
-from app.commands.history import add_to_history, save_history, load_history, clear_history
+from app.commands.history import (
+    add_to_history,
+    save_history,
+    load_history,
+    clear_history,
+)
+
 
 def repl():
     logger.info("Advanced Python Calculator started. Type 'exit' to quit.")
@@ -25,7 +31,7 @@ def repl():
     multiply_command = Multiply()
     divide_command = Divide()
 
-    plugin_manager = PluginManager('app/plugins/greet')
+    plugin_manager = PluginManager("app/plugins/greet")
     plugin_manager.load_plugins()
 
     while True:
@@ -36,27 +42,27 @@ def repl():
 
         command = user_input.strip().lower()
 
-        if command == 'exit':
-            save_history()  
+        if command == "exit":
+            save_history()
             logger.info("Calculator exited.")
             break
 
-        elif command == 'greet':
+        elif command == "greet":
             logger.debug("Greet command detected.")
             plugin_manager.run_plugins()
             continue
 
-        elif command == 'load history':
+        elif command == "load history":
             logger.debug("Load history command detected.")
-            load_history()  
+            load_history()
             print("History loaded.")
-            continue  
+            continue
 
-        elif command == 'clear history':
+        elif command == "clear history":
             logger.debug("Clear history command detected.")
             clear_history()
             print("History cleared.")
-            continue  
+            continue
 
         parts = user_input.split()
 
@@ -64,25 +70,27 @@ def repl():
             command = parts[0].strip().lower()
             try:
                 a, b = float(parts[1]), float(parts[2])
-                if command == 'add':
+                if command == "add":
                     result = add_command.execute(a, b)
-                    add_to_history('add', a, b, result)
+                    add_to_history("add", a, b, result)
                     logger.debug(f"Performed addition: {a} + {b} = {result}")
-                elif command == 'subtract':
+                elif command == "subtract":
                     result = subtract_command.execute(a, b)
-                    add_to_history('subtract', a, b, result)
+                    add_to_history("subtract", a, b, result)
                     logger.debug(f"Performed subtraction: {a} - {b} = {result}")
-                elif command == 'multiply':
+                elif command == "multiply":
                     result = multiply_command.execute(a, b)
-                    add_to_history('multiply', a, b, result)
+                    add_to_history("multiply", a, b, result)
                     logger.debug(f"Performed multiplication: {a} * {b} = {result}")
-                elif command == 'divide':
+                elif command == "divide":
                     result = divide_command.execute(a, b)
-                    add_to_history('divide', a, b, result)
+                    add_to_history("divide", a, b, result)
                     logger.debug(f"Performed division: {a} / {b} = {result}")
                 else:
                     logger.warning(f"Unknown command: {command}")
-                    print("Unknown command. Please use 'add', 'subtract', 'multiply', or 'divide'.")
+                    print(
+                        "Unknown command. Please use 'add', 'subtract', 'multiply', or 'divide'."
+                    )
                     continue
 
                 print(f"Result: {result}")
@@ -95,6 +103,7 @@ def repl():
         else:
             logger.warning("Invalid input format.")
             print("Invalid input format. Use: <command> <a> <b>")
+
 
 if __name__ == "__main__":
     repl()
