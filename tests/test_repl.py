@@ -13,6 +13,21 @@ import logging
 import logging.config
 import configparser
 from app.plugin_manager import PluginManager
+import os
+
+# Create the logs directory if it does not exist
+if not os.path.exists('logs'):
+    os.makedirs('logs')
+
+import logging
+import logging.config
+import configparser
+
+config = configparser.ConfigParser()
+config.read("logging.conf")
+logging.config.fileConfig(config)
+
+logger = logging.getLogger(__name__)
 
 
 @pytest.fixture
