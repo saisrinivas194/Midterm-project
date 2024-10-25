@@ -144,7 +144,7 @@ except ValueError as e:
 ```
 
 ## Video Demonstration
-A video demonstration showcasing the key features of the calculator, including basic operations, history management, plugins, and logging behavior, can be found here: [Link to Video](#).
+A video demonstration showcasing the key features of the calculator, including basic operations, history management, plugins, and logging behavior, can be found here: [Link to Video](https://youtu.be/SVOnob4rExk?si=cr-PvWUhsGwXT8fD).
 
 ## Linting and Type Checking Compliance
 To maintain code quality, `flake8` and `mypy` checks are run regularly. Ensure you address any remaining issues such as line length errors, unused imports, or missing type hints.
