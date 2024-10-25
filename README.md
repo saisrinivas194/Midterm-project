@@ -27,7 +27,7 @@ The Command pattern encapsulates a request as an object, allowing for parameteri
 
 **Implementation:** In the `app/commands` directory, each operation (e.g., addition, subtraction) is represented as a command class that implements a common interface.
 
-**Code Example:**
+**My Code :**
 ```python
 # app/commands/command.py
 class Command:
@@ -48,7 +48,7 @@ The Facade pattern provides a simplified interface to a complex subsystem. In th
 
 **Implementation:** The `repl()` function in `app/repl.py` serves as the facade, managing user input and invoking the appropriate command.
 
-**Code Example:**
+**My Code:**
 ```python
 def repl():
     add_command = Add()
@@ -61,7 +61,7 @@ def repl():
 ### Singleton Pattern
 The Singleton pattern restricts the instantiation of a class to one single instance. While this pattern is not explicitly implemented in the current code, it can be applied for the `PluginManager` to ensure that only one instance manages the plugins.
 
-**Code Example (Hypothetical):**
+**My Code (Hypothetical):**
 ```python
 class PluginManager:
     _instance = None
@@ -77,7 +77,7 @@ The Factory Method pattern defines an interface for creating an object but allow
 
 **Implementation:** The `PluginManager` can dynamically load and instantiate plugin classes.
 
-**Code Example:**
+**My Code:**
 ```python
 # app/plugins/plugin.py
 class Plugin:
@@ -90,7 +90,7 @@ Environment variables are utilized for configuring various aspects of the applic
 
 **Usage:** You can set environment variables in a `.env` file or directly in your system. The application loads these variables to configure logging.
 
-**Code Example:**
+**My Code:**
 ```python
 # Load environment variables
 from dotenv import load_dotenv
@@ -105,7 +105,7 @@ Logging is configured using a dedicated configuration file to manage severity le
 
 **Configuration:** The logging configuration is managed through `logging.conf`, which specifies log levels, handlers, and formatters.
 
-**Code Example:**
+**My Code:**
 ```ini
 [logger_root]
 level=INFO
@@ -126,7 +126,7 @@ logger.error("This is an error message.")
 ### LBYL (Look Before You Leap)
 The LBYL approach checks conditions before executing actions. This is evident in operations where we verify input validity before performing arithmetic calculations.
 
-**Code Example:**
+**My Code:**
 ```python
 if y == 0:
     raise ValueError("Cannot divide by zero.")
@@ -135,7 +135,7 @@ if y == 0:
 ### EAFP (Easier to Ask for Forgiveness than Permission)
 EAFP attempts to execute code and catches exceptions if they arise. This is commonly used in the calculator's REPL for arithmetic operations.
 
-**Code Example:**
+**My Code:**
 ```python
 try:
     result = divide_command.execute(a, b)
