@@ -2,6 +2,7 @@
 # Advanced Python Calculator
 
 ## Table of Contents
+- [Video Demonstration](#video-demonstration)
 - [Introduction](#introduction)
 - [Design Patterns](#design-patterns)
   - [Command Pattern](#command-pattern)
@@ -13,9 +14,11 @@
 - [Exception Handling](#exception-handling)
   - [LBYL (Look Before You Leap)](#lbyl-look-before-you-leap)
   - [EAFP (Easier to Ask for Forgiveness than Permission)](#eafp-easier-to-ask-for-forgiveness-than-permission)
-- [Video Demonstration](#video-demonstration)
 - [Linting and Type Checking Compliance](#linting-and-type-checking-compliance)
 - [Final GitHub Actions Configuration](#final-github-actions-configuration)
+
+## Video Demonstration
+A video demonstration showcasing the key features of the calculator, including basic operations, history management, plugins, and logging behavior, can be found here: [Link to Video](https://youtu.be/SVOnob4rExk?si=cr-PvWUhsGwXT8fD).
 
 ## Introduction
 This repository contains an advanced calculator application implemented in Python, showcasing various design patterns, robust error handling, and logging capabilities. The application supports basic arithmetic operations and provides a command-line interface (REPL) for user interaction.
@@ -142,9 +145,6 @@ try:
 except ValueError as e:
     print(e)
 ```
-
-## Video Demonstration
-A video demonstration showcasing the key features of the calculator, including basic operations, history management, plugins, and logging behavior, can be found here: [Link to Video](https://youtu.be/SVOnob4rExk?si=cr-PvWUhsGwXT8fD).
 
 ## Linting and Type Checking Compliance
 To maintain code quality, `flake8` and `mypy` checks are run regularly. Ensure you address any remaining issues such as line length errors, unused imports, or missing type hints.
