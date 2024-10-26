@@ -82,7 +82,6 @@ The Factory Method pattern defines an interface for creating an object but allow
 
 **My Code:**
 ```python
-# app/plugins/plugin.py
 class Plugin:
     def run(self, *args):
         raise NotImplementedError("Plugins must implement the 'run' method.")
